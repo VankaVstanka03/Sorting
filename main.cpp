@@ -14,13 +14,18 @@ int main() {
 	arr = (int*)malloc(n * sizeof(int));
 	srand(time(NULL)); //системное время
 	for (int i = 0; i < n; i++) {
-		arr[i] = rand() % 15000000;
+		//arr[i] = rand() % 15000000;
+		arr[i] = n - i;
 	}
 	switch (k){
 	case 1:
 		t = clock();
 		BubbleSort(arr, n);
 		t = clock() - t;
+		for (int i = 0; i < n; i++) {
+			printf(" %d ", arr[i]);
+		}
+		printf("\n");
 		printf("It took me %d (%f seconds).\n",
 			(int)t, ((double)t) / CLOCKS_PER_SEC);
 		break;
@@ -28,6 +33,10 @@ int main() {
 		t = clock();
 		ForwSort(arr, n);
 		t = clock() - t;
+		for (int i = 0; i < n; i++) {
+			printf(" %d ", arr[i]);
+		}
+		printf("\n");
 		printf("It took me %d clicks (%f seconds).\n",
 			(int)t, ((double)t) / CLOCKS_PER_SEC);
 		break;
@@ -35,6 +44,10 @@ int main() {
 		t = clock();
 		QuickSort(arr, n - 1, 0);
 		t = clock() - t;
+		for (int i = 0; i < n; i++) {
+			printf(" %d ", arr[i]);
+		}
+		printf("\n");
 		printf("It took me %d clicks (%f seconds).\n",
 			(int)t, ((double)t) / CLOCKS_PER_SEC);
 		break;
